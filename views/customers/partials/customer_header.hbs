@@ -1,0 +1,28 @@
+<header class="page-header">
+    <div class="navbar">
+        <ul class="nav navbar-nav navbar-right pull-right">
+            <li class="visible-phone-landscape">
+                <a href="/grid_basic.html#" id="search-toggle">
+                    <i class="fa fa-search"></i>
+                </a>
+            </li>
+            <li class="hidden-sm">
+                <a style="color: white; font-size: small;" href="#">John Best</a>
+            </li>
+            <li class="hidden-sm">
+                <a style="color: white; font-size: small;" href="/app/my-account/">Settings</a>
+            </li>
+            {{#if adminSection}}
+                <li class="hidden-sm">
+                    <a style="color: white; font-size: small;" href="/admin/">BL Admin</a>
+                </li>
+            {{/if}}
+            <li class="hidden-sm">
+                <a style="color: white; font-size: small;" href="/logout">Logout</a>
+            </li>
+        </ul>
+        <form id="search-form" class="navbar-form pull-right" role="search" style="height: 0px;">
+            <input type="search" class="form-control search-query" placeholder="Search...">
+        </form>
+    </div>
+</header>

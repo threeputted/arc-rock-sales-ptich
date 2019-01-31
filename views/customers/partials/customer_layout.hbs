@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{title}}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--application specific-->
+    <link href="/css/application.min.css" rel="stylesheet">
+
+</head>
+<body >
+<div class="logo">
+    <img src="/img/arc-logo.png" style="height: 50px;">
+</div>
+{{> customers.customer_header}}
+{{> customers.customer_sidebar}}
+<div class="wrap">
+    {{{body}}}
+</div>
+{{> customers.swag-store-right}}
+{{> customers.customer_footer}}
+<div class="loader-wrap hiding hide">
+    <i class="fa fa-circle-o-notch fa-spin"></i>
+</div>
+
+</body>
+</html>

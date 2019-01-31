@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<!-- saved from url=(0153)/grid_basic.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>BlackLake Security</title>
+
+    <link href="/css/app/application.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <script>
+        /* yeah we need this empty stylesheet here. It's cool chrome & chromium fix
+           chrome fix https://code.google.com/p/chromium/issues/detail?id=167083
+                      https://code.google.com/p/chromium/issues/detail?id=332189
+        */
+    </script>
+</head>
+<body>
+<div class="logo">
+    <img src="/img/logo_1.png" style="height: 50px;">
+</div>
+<nav id="sidebar" class="sidebar nav-collapse collapse">
+    <ul id="side-nav" class="side-nav">
+        <li class="">
+            <a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/index.html"><i class="fa fa-home"></i> <span class="name">Dashboard</span></a>
+        </li>
+        <li class="">
+            <a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/package.html"><i class="fa fa-database"></i> <span class="name">LB Package <sup class="text-warning fw-bold">4.0</sup></span></a>
+        </li>
+        <li class="panel ">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#forms-collapse" aria-expanded="false"><i class="fa fa-pencil"></i> <span class="name">Forms</span></a>
+            <ul id="forms-collapse" class="panel-collapse collapse " aria-expanded="false">
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/form_account.html">Account</a></li>
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/form_article.html">Article</a></li>
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/form_elements.html">Elements</a></li>
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/form_validation.html">Validation</a></li>
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/form_wizard.html">Wizard</a></li>
+            </ul>
+        </li>
+        <li class="panel ">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#stats-collapse" aria-expanded="false"><i class="fa fa-area-chart"></i> <span class="name">Statistics</span></a>
+            <ul id="stats-collapse" class="panel-collapse collapse " aria-expanded="false">
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/stat_statistics.html">Stats</a></li>
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/stat_charts.html">Charts</a></li>
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/stat_realtime.html">Realtime</a></li>
+            </ul>
+        </li>
+        <li class="panel ">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#ui-collapse" aria-expanded="false"><i class="fa fa-magic"></i> <span class="name">User Interface</span></a>
+            <ul id="ui-collapse" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/ui_buttons.html">Buttons</a></li>
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/ui_dialogs.html">Dialogs</a></li>
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/ui_notifications.html">Notifications</a></li>
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/ui_icons.html">Icons</a></li>
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/ui_tabs.html">Tabs</a></li>
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/ui_accordion.html">Accordion</a></li>
+            </ul>
+        </li>
+        <li class="panel ">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#components-collapse" aria-expanded="false"><i class="fa fa-tree"></i> <span class="name">Components</span></a>
+            <ul id="components-collapse" class="panel-collapse collapse " aria-expanded="false">
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/component_calendar.html">Calendar</a></li>
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/component_maps.html" data-no-pjax="">Maps</a></li>
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/component_gallery.html">Gallery</a></li>
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/component_fileupload.html" data-no-pjax="">Fileupload</a></li>
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/component_bootstrap.html">Bootstrap</a></li>
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/component_list_groups.html">List Groups</a></li>
+            </ul>
+        </li>
+        <li class="panel ">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#tables-collapse" aria-expanded="false"><i class="fa fa-cog"></i> <span class="name">Tables</span></a>
+            <ul id="tables-collapse" class="panel-collapse collapse " aria-expanded="false">
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/tables_static.html">Static <sup class="text-danger fw-bold">upd</sup></a></li>
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/tables_dynamic.html">Dynamic</a></li>
+            </ul>
+        </li>
+        <li class="panel active">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#grid-collapse" aria-expanded="false"><i class="fa fa-th"></i> <span class="name">Widgets</span></a>
+            <ul id="grid-collapse" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                <li class="active"><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html">Basic</a></li>
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_live.html">Live</a></li>
+            </ul>
+        </li>
+        <li class="panel ">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#special-collapse" aria-expanded="false"><i class="fa fa-leaf"></i> <span class="name">Special</span></a>
+            <ul id="special-collapse" class="panel-collapse collapse " aria-expanded="false">
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/special_search.html">Search <sup class="text-warning fw-bold">new</sup></a></li>
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/special_invoice.html">Invoice</a></li>
+                <li class=""><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/special_inbox.html">Inbox &nbsp; <span class="label label-important">3</span></a></li>
+                <li><a target="_blank" href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/login.html">Login</a></li>
+                <li><a target="_blank" href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/error.html">Error Page</a></li>
+                <li><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/landing.html" data-no-pjax="">Landing</a></li>
+                <li><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/light/index.html" data-no-pjax="" title="Light Blue Transparent Light version">Light <sup class="text-warning fw-bold">new</sup></a></li>
+                <li><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/white/index.html" data-no-pjax="" title="Light Blue Transparent White version">White <sup class="text-warning fw-bold">new</sup></a></li>
+            </ul>
+        </li>
+        <li class="panel">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#menu-levels-collapse" aria-expanded="false"><i class="fa fa-folder-open"></i> <span class="name">Menu Levels</span></a>
+            <ul id="menu-levels-collapse" class="panel-collapse collapse" aria-expanded="false">
+                <li><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#">Item 1.1</a></li>
+                <li><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#">Item 1.2</a></li>
+                <li class="panel">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#menu-levels-collapse" href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#sub-menu-1-collapse">Item 1.3</a>
+                    <ul id="sub-menu-1-collapse" class="panel-collapse collapse">
+                        <li class="panel">
+                            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#sub-menu-1-collapse" href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#sub-menu-3-collapse">Item 2.1</a>
+                            <ul id="sub-menu-3-collapse" class="panel-collapse collapse">
+                                <li><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#">Item 3.1</a></li>
+                                <li><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#">Item 3.2</a></li>
+                                <li><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#">Item 3.3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#">Item 2.2</a></li>
+                        <li class="panel">
+                            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#sub-menu-1-collapse" href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#sub-menu-2-collapse">Item 2.3</a>
+                            <ul id="sub-menu-2-collapse" class="panel-collapse collapse">
+                                <li><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#">Item 3.4</a></li>
+                                <li><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#">Item 3.5</a></li>
+                                <li><a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#">Item 3.6</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="visible-xs">
+            <a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/login.html"><i class="fa fa-sign-out"></i> <span class="name">Sign Out</span></a>
+        </li>
+    </ul>
+
+    <h5 class="sidebar-nav-title">Labels <a class="action-link" href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#"><i class="glyphicon glyphicon-plus"></i></a></h5>
+    <!-- some styled links in sidebar. ready to use as links to email folders, projects, groups, etc -->
+    <ul class="sidebar-labels">
+        <li>
+            <a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#">
+                <!-- yep, .circle again -->
+                <i class="fa fa-circle text-warning"></i>
+                <span class="label-name">My Recent</span>
+            </a>
+        </li>
+        <li>
+            <a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#">
+                <i class="fa fa-circle text-gray"></i>
+                <span class="label-name">Starred</span>
+            </a>
+        </li>
+        <li>
+            <a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#">
+                <i class="fa fa-circle text-danger"></i>
+                <span class="label-name">Background</span>
+            </a>
+        </li>
+    </ul>
+
+    <h5 class="sidebar-nav-title">Projects</h5>
+    <!-- A place for sidebar notifications & alerts -->
+    <div class="sidebar-alerts">
+        <div class="alert fade in">
+            <a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#" class="close" data-dismiss="alert" aria-hidden="true">×</a>
+            <span class="text-white fw-semi-bold">Sales Report</span> <br>
+            <div class="progress progress-xs mt-xs mb-0">
+                <div class="progress-bar progress-bar-gray-light" style="width: 16%"></div>
+            </div>
+            <small>Calculating x-axis bias... 65%</small>
+        </div>
+        <div class="alert fade in">
+            <a href="file:///C:/Dropbox%20(Criterion%20Research)/Development/Templates/Light%20Blue/light-blue-wrapbootstrap-v4.0.1/html-transparent-dark/dist/grid_basic.html#" class="close" data-dismiss="alert" aria-hidden="true">×</a>
+            <span class="text-white fw-semi-bold">Personal Responsibility</span> <br>
+            <div class="progress progress-xs mt-xs mb-0">
+                <div class="progress-bar progress-bar-danger" style="width: 23%"></div>
+            </div>
+            <small>Provide required notes</small>
+        </div>
+    </div>
+</nav>
+<div class="wrap">
+    <header class="page-header">
+        <div class="navbar">
+            <ul class="nav navbar-nav navbar-right pull-right">
+                <li class="visible-phone-landscape">
+                    <a href="/grid_basic.html#" id="search-toggle">
+                        <i class="fa fa-search"></i>
+                    </a>
+                </li>
+                <li class="hidden-sm">
+                    <a style="color: white; font-size: small;" href="#">John Best</a>
+                </li>
+                <li class="hidden-sm">
+                    <a style="color: white; font-size: small;" href="#">Settings</a>
+                </li>
+                <li class="hidden-sm">
+                    <a style="color: white; font-size: small;" href="#">Logout</a>
+                </li>
+            </ul>
+            <form id="search-form" class="navbar-form pull-right" role="search" style="height: 0px;">
+                <input type="search" class="form-control search-query" placeholder="Search...">
+            </form>
+        </div>
+    </header>
+    <div class="content container">
+        <h2 class="page-title"><span class="fw-semi-bold">Responsive</span> Grid <small>Fully responsive layout</small></h2>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <section class="widget tiny">
+                    <header>
+                        <h4>
+
+                            Col-md-8 widget
+                        </h4>
+                    </header>
+                    <div class="body">
+                        <blockquote class="blockquote-sm">
+                            Looks great with <code>.col-md-offset-2</code>
+                        </blockquote>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <section class="widget tiny">
+                <header>
+                    <h4>
+                        The same with 10
+                    </h4>
+                </header>
+                <div class="body">
+                    <blockquote class="blockquote-sm">
+                        Looks great with <code>.col-md-offset-1</code>
+                    </blockquote>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <section class="widget tiny-x2">
+                <header>
+                    <h4>
+                        Col-md-5
+                    </h4>
+                </header>
+                <div class="body">
+                </div>
+            </section>
+        </div>
+        <div class="col-md-4">
+            <section class="widget tiny">
+                <header>
+                    <h4>
+                        Col-md-4
+                    </h4>
+                </header>
+                <div class="body">
+                </div>
+            </section>
+            <section class="widget tiny">
+                <header>
+                    <h4>
+                        Col-md-4
+                    </h4>
+                </header>
+                <div class="body">
+                </div>
+            </section>
+        </div>
+        <div class="col-md-3">
+            <section class="widget tiny">
+                <header>
+                    <h4>
+                        Col-md-3
+                    </h4>
+                </header>
+                <div class="body">
+                </div>
+            </section>
+            <section class="widget tiny">
+                <header>
+                    <h4>
+                        Col-md-3
+                    </h4>
+                </header>
+                <div class="body">
+                </div>
+            </section>
+        </div>
+    </div>
+    <footer class="content-footer">
+        Light Blue 4.0 Ajax Version - Made by <a href="https://flatlogic.com/" rel="nofollow noopener noreferrer" target="_blank">Flatlogic</a>
+    </footer>
+</div>
+<div class="loader-wrap hiding hide">
+    <i class="fa fa-circle-o-notch fa-spin"></i>
+</div>
+</div>
+
+<!-- common libraries. required for every page-->
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/jquery-pjax/jquery.pjax.js"></script>
+<script src="/lib/bootstrap/bootstrap.min.js"></script>
+<script src="/lib/widgster/widgster.js"></script>
+<script src="/lib/underscore/underscore.js"></script>
+
+<!-- common application js -->
+<script src="/lib/app/app.js"></script>
+<script src="/lib/app/settings.js"></script>
+
+<!-- common templates -->
+<script type="text/template" id="settings-template">
+    <div class="setting clearfix">
+        <div>Sidebar on the</div>
+        <div id="sidebar-toggle" class="pull-left btn-group" data-toggle="buttons-radio">
+            <% onRight = sidebar == 'right'%>
+            <button type="button" data-value="left" class="btn btn-sm btn-default <%= onRight? '' : 'active' %>">Left</button>
+            <button type="button" data-value="right" class="btn btn-sm btn-default <%= onRight? 'active' : '' %>">Right</button>
+        </div>
+    </div>
+    <div class="setting clearfix">
+        <div>Sidebar</div>
+        <div id="display-sidebar-toggle" class="pull-left btn-group" data-toggle="buttons-radio">
+            <% display = displaySidebar%>
+            <button type="button" data-value="true" class="btn btn-sm btn-default <%= display? 'active' : '' %>">Show</button>
+            <button type="button" data-value="false" class="btn btn-sm btn-default <%= display? '' : 'active' %>">Hide</button>
+        </div>
+    </div>
+    <div class="setting clearfix">
+        <div>Light Version</div>
+        <div>
+            <a href="../light/index.html" class="btn btn-sm btn-default">&nbsp; Switch &nbsp;   <i class="fa fa-angle-right"></i></a>
+        </div>
+    </div>
+    <div class="setting clearfix">
+        <div>White Version</div>
+        <div>
+            <a href="../white/index.html" class="btn btn-sm btn-default">&nbsp; Switch &nbsp;   <i class="fa fa-angle-right"></i></a>
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="sidebar-settings-template">
+    <% auto = sidebarState == 'auto'%>
+    <% if (auto) {%>
+    <button type="button"
+            data-value="icons"
+            class="btn-icons btn btn-transparent btn-sm">Icons</button>
+    <button type="button"
+            data-value="auto"
+            class="btn-auto btn btn-transparent btn-sm">Auto</button>
+    <%} else {%>
+    <button type="button"
+            data-value="auto"
+            class="btn btn-transparent btn-sm">Auto</button>
+    <% } %>
+</script>
+
+<!-- page specific scripts -->
+<!-- page specific libs -->
+
+<!-- page application js -->
+
+
+</body></html>

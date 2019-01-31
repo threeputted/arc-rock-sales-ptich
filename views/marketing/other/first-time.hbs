@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html class="login-bg">
+<head>
+    <title>{{title}}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- bootstrap -->
+    <link href="/css/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="/css/bootstrap/bootstrap-overrides.css" type="text/css" rel="stylesheet" />
+
+    <!-- global styles -->
+    <link rel="stylesheet" type="text/css" href="/css/compiled/layout.css" />
+    <link rel="stylesheet" type="text/css" href="/css/compiled/elements.css" />
+    <link rel="stylesheet" type="text/css" href="/css/compiled/icons.css" />
+
+    <!-- libraries -->
+    <link rel="stylesheet" type="text/css" href="/css/lib/font-awesome.css" />
+
+    <!-- this page specific styles -->
+    <link rel="stylesheet" href="/css/compiled/signin.css" type="text/css" media="screen" />
+
+    <!-- open sans font -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+
+<div class="login-wrapper">
+    <a href="/">
+        <img class="logo" src="/img/gelbercorp-logo.png" alt="logo" style="max-width: 350px;"/>
+    </a>
+
+    <div class="box">
+        <div class="content-wrap">
+            <form method="post" id="update-password">
+                <input type="hidden" name="_csrf" value="{{_csrf}}">
+                <input type="hidden" name="_id" value="{{results._id}}">
+                <input type="hidden" name="email" value="{{results.email}}">
+                <div>
+                    <h6>{{#if results.first_login}}Please create your password{{else}}Update Your Password{{/if}}</h6>
+                    <input class="form-control" id="password" name="password" type="password" placeholder="Your password" required>
+                    <!--<a class="btn-glow primary login" href="/app/guidance/commentary">Log in</a>-->
+                    <div id="password-error-message" style="padding-bottom: 15px;font-size: 1.2em; color: #ff0000; font-weight: 600;"></div>
+                </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-sm-offset-2 col-sm-8">
+                            <div class="btn-toolbar">
+
+                                <button type="submit" class="btn btn-primary">
+                                    {{#if results.first_login}}Create Password{{else}}Update Password{{/if}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="no-account">
+        <p>Don't have an account?</p>
+        <a href="signup">More Information</a>
+    </div>
+</div>
+
+
+<!-- scripts -->
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/theme.js"></script>
+
+<script src="/lib/zxcvbn/zxcvbn.js"></script>
+
+
+<!-- pre load bg imgs -->
+<script type="text/javascript">
+    $(function () {
+        // bg switcher
+        var $btns = $(".bg-switch .bg");
+        $btns.click(function (e) {
+            e.preventDefault();
+            $btns.removeClass("active");
+            $(this).addClass("active");
+            var bg = $(this).data("img");
+
+            $("html").css("background-image", "url('img/bgs/" + bg + "')");
+        });
+    });
+
+    $('#update-password').submit(function(){
+        let password = $('#password').val();
+        if (zxcvbn(password).score < 2) {
+            console.log("This is the password " + JSON.stringify(zxcvbn(password).score));
+            $('#password-error-message').html("Please increase the strength of your password");
+            return false;
+        } else {
+            return true;
+        }
+    })
+
+
+</script>
+</body>
+</html>

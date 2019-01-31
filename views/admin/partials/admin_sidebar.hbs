@@ -1,0 +1,79 @@
+<nav id="sidebar" class="sidebar nav-collapse collapse">
+    <ul id="side-nav" class="side-nav">
+        <li class="">
+            <a href="/admin/"><i class="fa fa-home"></i> <span class="name">Dashboard</span></a>
+        </li>
+        <li class="panel ">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="/admin/#customers-collapse" aria-expanded="false"><i class="fa fa-pencil"></i> <span class="name">Customers</span></a>
+            <ul id="customers-collapse" class="panel-collapse collapse " aria-expanded="false">
+                <li class=""><a href="/admin/customer-administration/">Customer Admin</a></li>
+                <li class=""><a href="/admin/user-administration/">User Admin</a></li>
+            </ul>
+        </li>
+        <li class="panel ">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="/admin/#orders-collapse" aria-expanded="false"><i class="fa fa-pencil"></i> <span class="name">Reporting</span></a>
+            <ul id="orders-collapse" class="panel-collapse collapse " aria-expanded="false">
+                <li class=""><a href="/admin/open-quotes/">Open Quotes</a></li>
+                <li class=""><a href="/admin/open-orders/">Open Orders</a></li>
+                <li class=""><a href="/admin/completed-orders/">Completed Orders</a></li>
+            </ul>
+        </li>
+        <li class="">
+            <a href="/admin/recurring-services/"><i class="fa fa-home"></i> <span class="name">Recurring Services</span></a>
+        </li>
+        <li class="panel ">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="/admin/#misc-collapse" aria-expanded="false"><i class="fa fa-pencil"></i> <span class="name">Other Items</span></a>
+            <ul id="misc-collapse" class="panel-collapse collapse " aria-expanded="false">
+                <li class=""><a href="/admin/update-misc-items/">Misc Items</a></li>
+            </ul>
+        </li>
+        <li class="">
+            <a href="/app/"><i class="fa fa-home"></i> <span class="name">Customer Site</span></a>
+        </li>
+    </ul>
+
+    <h5 class="sidebar-nav-title">Labels <a class="action-link" href="/grid_basic.html#"><i class="glyphicon glyphicon-plus"></i></a></h5>
+    <!-- some styled links in sidebar. ready to use as links to email folders, projects, groups, etc -->
+    <ul class="sidebar-labels">
+        <li>
+            <a href="#">
+                <!-- yep, .circle again -->
+                <i class="fa fa-circle text-warning"></i>
+                <span class="label-name">My Recent</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-circle text-gray"></i>
+                <span class="label-name">Starred</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-circle text-danger"></i>
+                <span class="label-name">Background</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+<!-- end sidebar -->
+
+<!-- scripts -->
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/jquery-pjax/jquery.pjax.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery-ui-1.10.2.custom.min.js"></script>
+<script src="/js/theme.js"></script>
+
+
+<script>
+    $(document).ready(function() {
+        // Keeps current submenu expanded
+        var targetElement = 'a[href="' + window.location.pathname + '"]';
+        var $item = $(targetElement).parent().parent();
+        if ($item.hasClass('submenu')){
+            $item.parent().addClass("active");
+            $item.show();
+        }
+    });
+</script>

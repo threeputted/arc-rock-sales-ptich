@@ -1,0 +1,286 @@
+
+
+<div class="content container">
+    <div class="row">
+        <div class="col-md-12" style="font-size: larger;">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="page-title">User Administration</h4>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+        </div>
+    </div>
+    <div class="row">
+        <form class="form-horizontal" role="form" method="post" action="/admin/user-administration" id="update-users-form">
+            <fieldset>
+                <div class="col-md-6">
+                    <input type="hidden" name="_csrf" value="{{_csrf}}">
+                    <input type="hidden" name="_id" value="{{results._id}}">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="project-type-select2">Existing Customers</label>
+                        <div class="col-sm-8">
+                            <select class="form-control "
+                                    id="customer-select"
+                                    name="customer_id"
+                            ></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="hint-field" class="col-sm-4 control-label article-label">Email</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="email" name="email" class="form-control" value="{{results.email}}" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="hint-field" class="col-sm-4 control-label article-label">First Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" name="first_name" class="form-control" value="{{results.first_name}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="hint-field" class="col-sm-4 control-label article-label">Last Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" name="last_name" class="form-control" value="{{results.last_name}}">
+                        </div>
+                    </div>
+                    <legend class="section" style="color:#FFFFFF;">Phone</legend>
+                    <div class="form-group">
+                        <label for="hint-field" class="col-sm-4 control-label article-label">Mobile</label>
+                        <div class="col-sm-8">
+                            <input type="text" name="mobile" class="form-control" value="{{results.phone.mobile}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="hint-field" class="col-sm-4 control-label article-label">Office</label>
+                        <div class="col-sm-8">
+                            <input type="text" name="office" class="form-control" value="{{results.phone.office}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="hint-field" class="col-sm-4 control-label article-label">Other</label>
+                        <div class="col-sm-8">
+                            <input type="text" name="other" class="form-control" value="{{results.phone.other}}">
+                        </div>
+                    </div>
+                    <legend class="section" style="color:#FFFFFF;">Addresses</legend>
+                    <div class="form-group">
+                        <label for="hint-field" class="col-sm-4 control-label article-label">Address Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" name="address_desc" class="form-control" value="{{results.addresses.0.address_desc}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="hint-field" class="col-sm-4 control-label article-label">Street</label>
+                        <div class="col-sm-8">
+                            <input type="text" name="address_1" class="form-control" value="{{results.addresses.0.address_1}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="hint-field" class="col-sm-4 control-label article-label">Street (Cont)</label>
+                        <div class="col-sm-8">
+                            <input type="text" name="address_2" class="form-control" value="{{results.addresses.0.address_2}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="hint-field" class="col-sm-4 control-label article-label">City</label>
+                        <div class="col-sm-8">
+                            <input type="text" name="city" class="form-control" value="{{results.addresses.0.city}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">State</label>
+                        <div class="col-sm-8">
+                            <select class="form-control states" name="state_id" id="state-select"></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="hint-field" class="col-sm-4 control-label article-label">
+                            Zip Code
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" id="zip_code" name="zip_code" class="form-control" value="{{results.addresses.0.zip_code}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Country</label>
+                        <div class="col-sm-8">
+                            <select class="form-control countries" name="addresses.country_id" id="country-select"></select>
+                        </div>
+                    </div>
+                    <legend class="section" style="color:#FFFFFF;">Change User Role/Status</legend>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="project-type-select2">User Role</label>
+                        <div class="col-sm-8">
+                            <select class="form-control role"
+                                    id="user-role-select"
+                                    name="role_id"
+                            ></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="project-type-select2">User Status</label>
+                        <div class="col-sm-8">
+                            <select class="form-control status"
+                                    id="user-status-select"
+                                    name="status_id"
+                            ></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="project-type-select2">Resend Creds</label>
+                        <div class="col-sm-8">
+                            <select class="form-control"
+                                    id="resend-creds-select"
+                                    name="resend_credentials"
+                            ><option>false</option><option>true</option></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </fieldset>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-sm-offset-2 col-sm-8">
+                        <div class="btn-toolbar">
+                            <button type="submit" class="btn btn-primary" onclick="SaveItem('#update-users-form')">
+                                {{#if results._id}}Update User{{else}}Create User{{/if}}
+                            </button>
+                            <button type="reset" class="btn btn-inverse" onClick="this.form.reset()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    {{#unless results._id}}
+        <div class="row">
+            <div class="col-md-12">
+                <section>
+                    <div>
+                        <table class="table" id="user-table" cellspacing="0" width="100%">
+                            <thead>
+                            <tr>
+                                <th>Company</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                                <th>Role</th>
+                                <th>Last Login</th>
+                            </tr>
+                            </thead>
+                            <tbody id="snips-summary-table-body">
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    {{/unless}}
+</div>
+
+
+<!-- scripts -->
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/jquery-pjax/jquery.pjax.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery-ui-1.10.2.custom.min.js"></script>
+<script src="/js/theme.js"></script>
+<script src="/lib/moment/moment.js"></script>
+
+<!--DataTables-->
+<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+<!-- select2 -->
+<script src="/lib/select2/select2.js"></script>
+
+<!-- Messenger Items -->
+<script src="/lib/messenger/build/js/messenger.js"></script>
+<script src="/lib/messenger/build/js/messenger-theme-flat.js"></script>
+
+<!-- Archidoodles Specific -->
+<script src="/lib/app/app.js"></script>
+<script src="/lib/app/select.js"></script>
+
+
+
+<script>
+    var url = ".." + window.location.pathname;
+
+    $(document).ready(function() {
+        UniversalSelect('#state-select', 'state_name', '/api/v1/geo_states?sort=state_name', {{{stringifyJson results.addresses.0.state_id}}}, 0);
+        UniversalSelect('#country-select', 'country_name', '/api/v1/geo_countries?sort=country_name', {{#if results.address.0.country_id}}{{{stringifyJson results.addresses.0.country_id}}}{{else}}'5522e0594358c03829db4d59'{{/if}}, 0);
+
+        UniversalSelect('.role', 'role', '/api/admin/v1/admin/admin_user_roles?sort=role', {{#if results.role_id}}{{{stringifyJson results.role_id}}}{{else}}{"_id":"5c3b273a1c9d440000b1f293"}{{/if}}, 0);
+        UniversalSelect('.status', 'status', '/api/admin/v1/admin/admin_statuses?sort=status', {{#if results.status_id}}{{{stringifyJson results.status_id}}}{{else}}{"_id": "5c3b26f81c9d440000b1f28e"}{{/if}}, 0);
+        UniversalSelect('#customer-select', 'name', '/api/admin/v1/admin/admin_customers?sort=name',{{#if results.customer_id}}{{{stringifyJson results.customer_id}}}{{else}}''{{/if}}, 0);
+
+        renderUserTable();
+
+    });
+
+
+    $('#user-select').change(function(){
+        let _id = $('#user-select').val();
+        var url = ".." + window.location.pathname + "?user_id=" + _id;
+        window.location.replace(url);
+    });
+
+    function renderUserTable(){
+        let data = {{{stringifyJson results}}};
+        let newData = data.map((m)=>{
+            return {
+                customer : m.customer_id.name,
+                name : '<a href="/admin/user-administration/?user_id=' + m._id + '" >' + m.first_name + " " + m.last_name + '</a>' ,
+                email : m.email,
+                status : m.status_id.status,
+                role : m.role_id[0].role,
+                last_logon : m.last_logon || null,
+            }
+        });
+        console.log("This is the new data: " + JSON.stringify(newData));
+        $('#user-table').dataTable( {
+            destroy : true
+            , processing : true
+            , data : newData
+            , dom: 'lfBtip'
+            , "order": [[1,"asc"]]
+            , "columns": [
+                { data: "customer" }
+                ,{ data: "name"}
+                ,{ data: "email", className: "center" }
+                ,{ data: "status", className: "center" }
+                ,{ data: "role", className: "center" }
+                ,{ data: "last_logon", className: "center", render : function(data){
+                        let res = "Acct Not Setup";
+                        if (data) res = moment(data).format("M/D/YY");
+                        return res;
+                    }}
+            ]
+            , buttons: [
+                'excel', 'print'
+            ]
+        } );
+
+
+    }
+
+
+</script>
+
+<th>_id</th>
+<th>Company</th>
+<th>Last Name</th>
+<th>First Name</th>
+<th>Username</th>
+<th>email</th>
+<th>Status</th>
+<th>Role</th>
+<th>Trial Start</th>
+<th>Trial End</th>

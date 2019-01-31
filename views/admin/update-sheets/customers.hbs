@@ -1,0 +1,299 @@
+<div id="targetModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="targetModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="target-content"></div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+
+<h3>Update Providers</h3>
+<div style="background-color: #ecfdff; padding: 15px">
+    {{#unless results._id}}
+        <div class="row">
+            <div class="col-md-12">
+                <section>
+                    <div>
+                        <table class="table" id="company-table" cellspacing="0" width="100%">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Affiliated</th>
+                                <th>Trade Groups</th>
+                                <th>SIC Codes</th>
+                                <th>NAICS Codes</th>
+                                <th>Contacts</th>
+                                <th>Website</th>
+                                <th>Logo</th>
+                                <th>Company Images</th>
+                                <th>Files</th>
+                            </tr>
+                            </thead>
+                            <tbody id="snips-summary-table-body">
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    {{/unless}}
+</div>
+
+{{#if results.debug}}
+    {{stringifyJson results}}
+{{/if}}
+
+<!-- common libraries. required for every page-->
+<script src="/lib/jquery/dist/jquery.js"></script>
+<script src="/lib/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+<script src="/lib/moment/moment.js"></script>
+
+<!-- select2 -->
+<script src="/lib/select2/select2.js"></script>
+
+<!-- Messenger Items -->
+<script src="/lib/messenger/build/js/messenger.js"></script>
+<script src="/lib/messenger/build/js/messenger-theme-flat.js"></script>
+
+<!-- Archidoodles Specific -->
+<script src="/lib/archidoodles/app.js"></script>
+<script src="/lib/archidoodles/select.js"></script>
+
+
+<!--DataTables-->
+<script type="text/javascript" src="/lib/datatables/datatables.min.js"></script>
+
+
+<script>
+    var url = ".." + window.location.pathname;
+
+    $(document).ready(function() {
+        companiesTable();
+    });
+
+
+    function autoGrow (oField) {
+        if (oField.scrollHeight > oField.clientHeight) {
+            oField.style.height = oField.scrollHeight + "px";
+        }
+    }
+
+
+    $('#country-select').change(function(){
+        let _id = $('#country-select').val();
+        //console.log("This is the id: " + _id);
+        UniversalSelect('#state-select', 'state_name', '/api/v1/geo_states?sort=state_name&country_id=' + _id,'',1);
+    });
+
+
+    function launchModal(type, id){
+        var url = "/admin/provider-edit";
+        if (type === "edit") url += "" + "?provider_id=" + id;
+        if (type === "create") url += "" + "?create=true";
+
+        console.log("this is hte url: " + url);
+        $.get(url, function(data) {
+            //console.log("This is the modal data: " + JSON.stringify(data));
+            $('#target-content').html(data);
+        });
+    }
+
+
+    function companiesTable(){
+        // create editor instance
+        /*       editor = new $.fn.dataTable.Editor( {
+                   ajax: "/php/staff.php",
+                   table: "#company-table",
+                   fields: [ {
+                       label: "_id:",
+                       name: "_id"
+                   }, {
+                       label: "Name:",
+                       name: "nameUrl"
+                   }, {
+                       label: "Types:",
+                       name: "types"
+                   }, {
+                       label: "Affiliated:",
+                       name: "affiliated_companies"
+                   }, {
+                       label: "Trade Groups",
+                       name: "trade_groups"
+                   }, {
+                       label: "SIC Codes",
+                       name: "sic_codes"
+                   }, {
+                       label: "NAICS Codes",
+                       name: "naics_codes"
+                   }, {
+                       label: "Contacts",
+                       name: "contacts"
+                   }, {
+                       label: "Website:",
+                       name: "website"
+                   }
+                   ]
+               } );
+       */
+
+        var data = {{{stringifyJson results}}};
+        var cleanedData = [];
+        data.forEach(function(d){
+            var context = d;
+            //context.nameUrl = '<a href="' + url + '-edit?company_id=' + d._id + '" target="_blank">' + d.name + '</a>';
+            context.nameUrl = '<a onclick="launchModal(\'edit\', \'' + d._id + '\')" data-toggle="modal" data-target="#targetModal">' + d.name + '</a>';
+            cleanedData.push(context);
+        });
+
+        /*
+                $.fn.dataTable.ext.buttons.reload = {
+                    text: 'Reload',
+                    action: function ( e, dt, node, config ) {
+                        dt.ajax.reload();
+                    }
+                };
+        */
+
+        $('#company-table').on('init.dt', function() {
+            $('.launchModalButton')
+                    .attr('data-toggle', 'modal')
+                    .attr('data-target', '#targetModal');
+        });
+
+        var dt = $('#company-table').dataTable( {
+            destroy : true
+            , processing : true
+            , data : cleanedData
+            , dom: 'lfBtip'
+            , "order": [[1,"asc"]]
+            , "columns": [
+                {
+                    data: "_id",
+                    visible : false,
+                }
+                ,{ data: "nameUrl" }
+                ,{ data: "types", className: "center" , render : function(data){
+                        if (data){
+                            let items = "";
+                            data.forEach((f)=>{
+                                items += f.type + '<br>';
+                            });
+                            return items;
+                        } else {
+                            return ""
+                        }
+                    }}
+                ,{ data: "affiliated_companies", className: "center" , render : function(data){
+                        if (data){
+                            let items = "";
+                            data.forEach((f)=>{
+                                items += f.name + '<br>';
+                            });
+                            return items;
+                        }else {
+                            return ""
+                        }
+                    }}
+                ,{ data: "trade_groups", className: "center" , render : function(data){
+                        if (data){
+                            let items = "";
+                            data.forEach((f)=>{
+                                items += f.trade_group + '<br>';
+                            });
+                            return items;
+                        }else {
+                            return ""
+                        }
+                    }}
+                ,{ data: "sic_codes", className: "center" , render : function(data){
+                        if (data){
+                            let items = "";
+                            data.forEach((f)=>{
+                                items += f.sic_code + '<br>';
+                            });
+                            return items;
+                        }else {
+                            return ""
+                        }
+                    }}
+                ,{ data: "naics_codes", className: "center" , render : function(data){
+                        if (data){
+                            let items = "";
+                            data.forEach((f)=>{
+                                items += f.naics_code + '<br>';
+                            });
+                            return items;
+                        }else {
+                            return ""
+                        }
+                    }}
+                ,{ data: "contacts", className: "center" , render : function(data){
+                        if (data){
+                            let items = "";
+                            data.forEach((f)=>{
+                                items += f.friendly_name + '<br>';
+                            });
+                            return items;
+                        }else {
+                            return ""
+                        }
+                    }}
+                ,{ data: "website", className: "center", render : function(data){
+                        if (data){
+                            return '<a href="' + cleanUrl(data) + '" target="_blank" style="width:150px">' + data.substring(0,15) + '...</a>';
+                        }
+                    }}
+                , { data : "logo", render : function(data){
+                        if (data && data.image_id){
+                            return '<a href="http://' + data.image_id.url + '" class="thumbnail-sm"><img src="http://' + data.image_id.url + '" alt="" ></a>';
+                        }
+                    }}
+                , { data : "company_images", render : function(data){
+                        if (data && data.image_ids && Array.isArray(data.image_ids) && data.image_ids.length > 0){
+                            console.log("These are the company_images: " + JSON.stringify(data));
+                            var context = [];
+                            data.image_ids.forEach((img)=>{
+                                context.push('<a href="http://' + img.url + '" class="thumbnail-sm"><img src="http://' + data.image_id.url + '" alt="" ></a>');
+                            });
+                            return context;
+                        }
+                    }}
+                , { data : "files", render : function(data){
+                        if (data && data.file_ids && Array.isArray(data.file_ids) && data.file_ids.length > 0){
+                            console.log("These are the files: " + JSON.stringify(data));
+                            var context = [];
+                            data.file_ids.forEach((file)=>{
+                                context.push('<a href="http://' + file.url + '" class="thumbnail-sm">' + file.filename + '/a>');
+                            });
+                            return context;
+                        }
+                    }}
+            ]
+            , buttons: [
+                {
+                    text : "Create New Company"
+                    , action : function(){
+                        launchModal("create");
+                        //if (err) console.log("create button err: " + JSON.stringify(err))
+                    }
+                    , className : 'launchModalButton'
+                }
+                ,'excel'
+            ]
+        } );
+    }
+
+    function cleanUrl(url){
+        if (url){
+            if (url.substring(0,3) === "www") {
+                return "http://" + url
+            } else {
+                return url;
+            }
+        }
+    }
+
+</script>

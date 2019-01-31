@@ -1,0 +1,427 @@
+{{#if results.debug}}
+    <link href="/css/application.css" rel="stylesheet">
+{{/if}}
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title" id="myModalLabel">{{#if results._id}}Update {{results.name}}{{else}}Create New Company{{/if}}</h4>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal" role="form" method="post" action="/admin/create-update-provider" id="update-companies-form">
+        <div class="">
+            <input type="hidden" name="_csrf" value="{{_csrf}}">
+            <input type="hidden" id="_id" name="_id" value="{{results._id}}">
+            <div class="form-group">
+                <label for="hint-field" class="col-sm-4 control-label article-label">
+                    Company Name
+                </label>
+                <div class="col-sm-8">
+                    <input type="text" id="name" name="name" class="form-control" value="{{results.name}}" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" for="project-type-select2">Provider Type</label>
+                <div class="col-sm-8">
+                    <input type="hidden" id="types-select" name="types" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" for="project-type-select2">Affiliated Companies</label>
+                <div class="col-sm-8">
+                    <input type="hidden" id="affiliated-companies-select" name="affiliated_companies" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" for="project-type-select2">Trade Group</label>
+                <div class="col-sm-8">
+                    <input type="hidden" id="trade-groups-select" name="trade_groups" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" for="project-type-select2">Trade Categories</label>
+                <div class="col-sm-8">
+                    <input type="hidden" id="trade-categories-select" name="trade_categories" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" for="project-type-select2">Trade Specialities</label>
+                <div class="col-sm-8">
+                    <input type="hidden" id="trade-specialities-select" name="trade_specialities" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" for="project-type-select2">CSI Trades</label>
+                <div class="col-sm-8">
+                    <input type="hidden" id="csi-master-codes-select" name="csi_master_codes" class="form-control">
+                </div>
+            </div>
+<!--
+            <div class="form-group">
+                <label class="col-sm-4 control-label" for="project-type-select2">Resource Types</label>
+                <div class="col-sm-8">
+                    <input type="hidden" id="resource-types-select" name="resource_types" class="form-control">
+                </div>
+            </div>
+-->
+<!--
+            <div class="form-group">
+                <label class="col-sm-4 control-label" for="project-type-select2">SIC Codes</label>
+                <div class="col-sm-8">
+                    <input type="hidden" id="sic-codes-select" name="sic_codes" class="form-control sic">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" for="project-type-select2">NAICS Codes</label>
+                <div class="col-sm-8">
+                    <input type="hidden" id="naics-codes-select" name="naics_codes" class="form-control naics">
+                </div>
+            </div>
+-->
+            {{#if results._id}}
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="project-type-select2">Company Contacts</label>
+                    <div class="col-sm-8">
+                        <input type="hidden" id="contacts-select" name="contacts" class="form-control">
+                    </div>
+                </div>
+            {{/if}}
+            <div class="form-group">
+                <label for="hint-field" class="col-sm-4 control-label article-label">
+                    Website
+                </label>
+                <div class="col-sm-8">
+                    <input type="url" name="website" class="form-control" value="{{results.website}}">
+                </div>
+            </div>
+            <div id="project-categories">
+                <legend class="section" style="font-size: larger;">Project Categories</legend>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="project-type-select2">Project Categories</label>
+                    <div class="col-sm-8">
+                        <input type="hidden" id="project-categories-select" name="project_categories" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="project-type-select2">Building Categories</label>
+                    <div class="col-sm-8">
+                        <input type="hidden" id="building-categories-select" name="building_categories" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="project-type-select2">Building Types</label>
+                    <div class="col-sm-8">
+                        <input type="hidden" id="building-types-select" name="building_types" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="project-type-select2">Areas</label>
+                    <div class="col-sm-8">
+                        <input type="hidden" id="misc-areas-select" name="misc_areas" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="project-type-select2">Styles</label>
+                    <div class="col-sm-8">
+                        <input type="hidden" id="misc-styles-select" name="misc_styles" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div id="product-categories">
+                <legend class="section" style="font-size: larger;">Product Categories</legend>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="project-type-select2">Product Categories</label>
+                    <div class="col-sm-8">
+                        <input type="hidden" id="product-categories-select" name="product_categories" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div id="address">
+                <legend class="section" style="font-size: larger;">Locations</legend>
+                <div class="form-group">
+                    <label for="hint-field" class="col-sm-4 control-label article-label">
+                        Address Description
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" name="address_desc" class="form-control" value="{{results.locations.0.address_desc}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="hint-field" class="col-sm-4 control-label article-label">
+                        Address
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" name="address_1" class="form-control" value="{{results.locations.0.address_1}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="hint-field" class="col-sm-4 control-label article-label">
+                        Address (cont)
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" name="address_2" class="form-control" value="{{results.locations.0.address_2}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="hint-field" class="col-sm-4 control-label article-label">
+                        City
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" name="city" class="form-control" value="{{results.locations.0.city}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="hint-field" class="col-sm-4 control-label article-label">
+                        Zip Code
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" name="zip_code" class="form-control" value="{{results.locations.0.zip_code}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="hint-field" class="col-sm-4 control-label article-label">
+                        Country
+                    </label>
+                    <div class="col-sm-8">
+                        <select id="country-select" class="form-control countries" name="country"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="hint-field" class="col-sm-4 control-label article-label">
+                        State
+                    </label>
+                    <div class="col-sm-8">
+                        <select class="form-control states" id="state-select" name="state"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="hint-field" class="col-sm-4 control-label article-label">
+                        Main Phone
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" name="phone_main" class="form-control" value="{{results.locations.0.phone_main}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="hint-field" class="col-sm-4 control-label article-label">
+                        Other Phone
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" name="phone_other" class="form-control" value="{{results.locations.0.phone_other}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="hint-field" class="col-sm-4 control-label article-label">
+                        Fax Number
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" name="fax" class="form-control" value="{{results.locations.0.fax}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="hint-field" class="col-sm-4 control-label article-label">
+                        General Email
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" name="email_general" class="form-control" value="{{results.locations.0.email_general}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="hint-field" class="col-sm-4 control-label article-label">
+                        Email Sales
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" name="email_sales" class="form-control" value="{{results.locations.0.email_sales}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="hint-field" class="col-sm-4 control-label article-label">
+                        General Customer Support
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" name="email_customer_support" class="form-control" value="{{results.locations.0.email_customer_support}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label article-label" for="elastic-textarea">
+                        Notes
+                    </label>
+                    <div class="col-sm-8">
+                            <textarea rows="3"
+                                      class="autogrow form-control transition-height noscrollbars"
+                                      name="notes"
+                                      onkeyup="autoGrow(this);"
+                            >{{results.notes}}</textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="project-type-select2">Record Status</label>
+                    <div class="col-sm-8">
+                        <select class="form-control" id="record-status-select" name="record_status"></select>
+                    </div>
+                </div>
+                <input type="hidden" id="logoIds" name="logoIds">
+                <input type="hidden" id="defaultImage" name="defaultImage">
+                <input type="hidden" id="attachments" name="files">
+            </div>
+        </div>
+    </form>
+    <div>
+        <div id="logo">
+            <form name="upload-logo-form">
+                <div>
+                    <input type="hidden" name="_csrf" value="{{_csrf}}">
+                    <legend class="section" style="font-size: larger;">Logo</legend>
+                    <div class="form-group">
+                        <label for="hint-field" class="col-sm-4 control-label article-label">
+                            Upload Logo
+                        </label>
+                        <div class="col-sm-8">
+                            <span class="btn btn-default fileinput-button mr-xs">
+                                <i class="glyphicon glyphicon-plus"></i>
+                                <span>Add Logo...</span>
+                                <input type="file" name="uploadFile" onchange="uploadItem('upload-logo-form', '/upload/v1/images', '#logoIds')">
+                            </span>
+                            <span>
+                                {{#if results.logo}}
+                                    <a href="http://{{results.logo.image_id.url}}" class="thumbnail-md">
+                                        <img src="http://{{results.logo.image_id.url}}" alt="" >
+                                    </a>
+                                {{/if}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="company-default-image">
+            <form name="company-default-image-form">
+                <div>
+                    <input type="hidden" name="_csrf" value="{{_csrf}}">
+                    <legend class="section" style="font-size: larger;">Company Default Image</legend>
+                    <div class="form-group">
+                        <label for="hint-field" class="col-sm-4 control-label article-label">
+                            Upload Image
+                        </label>
+                        <div class="col-sm-8">
+                            <span class="btn btn-default fileinput-button mr-xs">
+                                <i class="glyphicon glyphicon-plus"></i>
+                                <span>Add Image...</span>
+                                <input type="file" name="uploadFile" onchange="uploadItem('company-default-image-form', '/upload/v1/company_images', '#defaultImage')">
+                            </span>
+                            <span>
+                                {{#if results.company_images}}
+                                    {{#each results.company_images.image_ids}}
+                                        <a href="http://{{url}}" class="thumbnail-md">
+                                        <img src="http://{{url}}" alt="" >
+                                    </a>
+                                    {{/each}}
+                                {{/if}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="attachments" style="padding-bottom: 30px;">
+            <form name="attachments-form">
+                <div>
+                    <input type="hidden" name="_csrf" value="{{_csrf}}">
+                    <legend class="section" style="font-size: larger;">Attachments</legend>
+                    <div class="form-group">
+                        <label for="hint-field" class="col-sm-4 control-label article-label">
+                            Upload Attachments
+                        </label>
+                        <div class="col-sm-8">
+                            <span class="btn btn-default fileinput-button mr-xs">
+                                <i class="glyphicon glyphicon-plus"></i>
+                                <span>Add Files...</span>
+                                <input type="file" name="uploadFile" onchange="uploadItem('attachments-form', '/upload/v1/files', '#attachments')" multiple>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="form-actions">
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-8">
+                <div class="btn-toolbar">
+                    <button type="submit" class="btn btn-primary" onclick="SaveItem('#update-companies-form')">
+                        {{#if results._id}}Update Company{{else}}Create Company{{/if}}
+                    </button>
+                    <button type="reset" class="btn btn-inverse" onClick="this.form.reset()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#if results.debug}}
+    {{stringifyJson results}}
+
+    <!-- common libraries. required for every page-->
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+    <script src="/lib/jquery-pjax/jquery.pjax.js"></script>
+    <script src="/lib/moment/moment.js"></script>
+
+    <!-- select2 -->
+    <script src="/lib/select2/select2.js"></script>
+
+    <!-- Messenger Items -->
+    <script src="/lib/messenger/build/js/messenger.js"></script>
+    <script src="/lib/messenger/build/js/messenger-theme-flat.js"></script>
+
+    <!-- Archidoodles Specific -->
+    <script src="/lib/archidoodles/app.js"></script>
+    <script src="/lib/archidoodles/select.js"></script>
+{{/if}}
+
+
+
+<script>
+
+    $(document).ready(function() {
+        UniversalSelect2('#types-select', 'type', '/api/v1/app_misc_provider_types?sort=type', {{{stringifyJson results.types}}});
+        UniversalSelect2('#trade-categories-select', 'category', '/api/v1/app_misc_trade_categories?sort=category', {{{stringifyJson results.trade_categories}}});
+        UniversalSelect2('#trade-specialities-select', 'speciality', '/api/v1/app_misc_trade_specialities?sort=speciality', {{{stringifyJson results.trade_specialities}}});
+        UniversalSelect2('#resource-types-select', 'type', '/api/v1/app_misc_resource_types?sort=type', {{{stringifyJson results.resource_types}}});
+
+
+        UniversalSelect2('#csi-master-codes-select', 'csi_description', '/api/v1/app_misc_csi_master_codes?sort=csi_description', {{{stringifyJson results.csi_master_codes}}});
+        UniversalSelect2('#project-categories-select', 'category', '/api/v1/app_misc_project_categories?sort=category', {{{stringifyJson results.project_categories}}});
+        UniversalSelect2('#building-categories-select', 'category', '/api/v1/app_misc_building_categories?sort=category', {{{stringifyJson results.building_categories}}});
+        UniversalSelect2('#building-types-select', 'type', '/api/v1/app_misc_building_types?sort=type', {{{stringifyJson results.building_types}}});
+        UniversalSelect2('#misc-areas-select', 'name', '/api/v1/app_misc_areas?sort=name', {{{stringifyJson results.misc_areas}}});
+        UniversalSelect2('#misc-styles-select', 'style', '/api/v1/app_misc_styles?sort=style', {{{stringifyJson results.misc_styles}}});
+        UniversalSelect2('#product-categories-select', 'category', '/api/v1/app_misc_product_categories?sort=category', {{{stringifyJson results.product_categories}}});
+
+        UniversalSelect2('#affiliated-companies-select', 'name', '/api/v1/app_providers?sort=name', {{{stringifyJson results.affiliated_companies}}});
+        UniversalSelect2('#trade-groups-select', 'trade_group', '/api/v1/app_misc_trade_groups?sort=trade_group', {{{stringifyJson results.trade_groups}}});
+        UniversalSelect2('#sic-codes-select', 'description', '/api/admin/v1/crm/crm_sic_codes?sort=description', {{{stringifyJson results.sic_codes}}});
+        UniversalSelect2('#naics-codes-select', 'description', '/api/admin/v1/crm/crm_naics_codes?sort=description', {{{stringifyJson results.naics_codes}}});
+        UniversalSelect2('#contacts-select', 'friendly_name', '/api/admin/v1/crm/crm_contacts?sort=name{{#if results._id}}&company_id={{results._id}}{{/if}}', {{{stringifyJson results.contacts}}});
+        UniversalSelect('#state-select', 'state_name', '/api/v1/geo_states?sort=state_abb&country_id=5522e0594358c03829db4d59', {{{stringifyJson results.locations.0.state}}},1);
+        UniversalSelect('.countries', 'country_name', '/api/v1/geo_countries?sort=country_name', {{#if results.locations}}{{{stringifyJson results.locations.0.country}}}{{else}}{ _id: "5522e0594358c03829db4d59", country_name: "United States"}{{/if}},1);
+        UniversalSelect('#record-status-select', 'status', '/api/v1/app_misc_record_statuses?sort=status', {{#if results.record_status}}{{{stringifyJson results.record_status}}}{{else}}{"_id": "5ba1224f59f9f74690a76111",  "status": "active"}{{/if}}, 0);
+        UniversalSelect('#attachment-status-select', 'status', '/api/v1/app_misc_attachment_statuses?sort=status', '', 0);
+        UniversalSelect('#attachment-types-select', 'type', '/api/v1/app_misc_attachment_types?sort=type', '', 0);
+    });
+
+
+    function autoGrow (oField) {
+        if (oField.scrollHeight > oField.clientHeight) {
+            oField.style.height = oField.scrollHeight + "px";
+        }
+    }
+
+    $('#country-select').change(function(){
+        let _id = $('#country-select').val();
+        //console.log("This is the id: " + _id);
+        UniversalSelect('#state-select', 'state_name', '/api/v1/geo_states?sort=state_name&country_id=' + _id,'',1);
+    });
+
+</script>

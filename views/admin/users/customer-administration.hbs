@@ -1,0 +1,215 @@
+
+
+<div class="content container">
+    <div class="row">
+        <div class="col-md-12" style="font-size: larger;">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="page-title">Customer Administration</h4>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+        </div>
+    </div>
+    <div class="row">
+        <form class="form-horizontal" role="form" method="post" action="/admin/customer-administration" id="update-customers-form">
+            <fieldset>
+                <div class="col-md-6">
+                    <input type="hidden" name="_csrf" value="{{_csrf}}">
+                    <input type="hidden" name="_id" value="{{results._id}}">
+                    <div class="form-group">
+                        <label for="hint-field" class="col-sm-4 control-label article-label">
+                            Customer Name
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" id="name" name="name" class="form-control" value="{{results.name}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="project-type-select2">Customer Status</label>
+                        <div class="col-sm-8">
+                            <select id="customer-status-select"
+                                    class="form-control status"
+                                    name="status_id">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="hint-field" class="col-sm-4 control-label article-label">
+                            Address Description
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" id="address_desc" name="address_desc" class="form-control" value="{{results.addresses.0.address_desc}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="hint-field" class="col-sm-4 control-label article-label">
+                            Address
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" id="address1" name="address_1" class="form-control" value="{{results.addresses.0.address_1}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="hint-field" class="col-sm-4 control-label article-label">
+                            Address Cont.
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" id="address2" name="address_2" class="form-control" value="{{results.addresses.0.address_2}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="hint-field" class="col-sm-4 control-label article-label">
+                            City
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" id="city" name="city" class="form-control" value="{{results.addresses.0.city}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">State</label>
+                        <div class="col-sm-8">
+                            <!--<input type="hidden" id="building_category-select" name="building_category_id" class="form-control building-types">-->
+                            <select class="form-control states" name="state_id"></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="hint-field" class="col-sm-4 control-label article-label">
+                            Zip Code
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" id="zip_code" name="zip_code" class="form-control" value="{{results.addresses.0.zip_code}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Country</label>
+                        <div class="col-sm-8">
+                            <!--<input type="hidden" id="building_category-select" name="building_category_id" class="form-control building-types">-->
+                            <select class="form-control countries" name="country_id"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </fieldset>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-sm-offset-2 col-sm-8">
+                        <div class="btn-toolbar">
+                            <button type="submit" class="btn btn-primary" onclick="SaveItem('#update-customers-form')">
+                                {{#if results}}Update Customer{{else}}Create Customer{{/if}}
+                            </button>
+                            <button type="reset" class="btn btn-inverse" onClick="this.form.reset()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    {{#unless results._id}}
+        <div class="row">
+            <div class="col-md-12">
+                <section>
+                    <div>
+                        <table class="table" id="customer-table" cellspacing="0" width="100%">
+                            <thead>
+                            <tr>
+                                <th>Customer Name</th>
+                                <th>Status</th>
+                            </tr>
+                            </thead>
+                            <tbody id="snips-summary-table-body">
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    {{/unless}}
+</div>
+
+
+<!-- scripts -->
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/jquery-pjax/jquery.pjax.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery-ui-1.10.2.custom.min.js"></script>
+<script src="/js/theme.js"></script>
+
+<!--DataTables-->
+<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+<!-- select2 -->
+<script src="/lib/select2/select2.js"></script>
+
+<!-- Messenger Items -->
+<script src="/lib/messenger/build/js/messenger.js"></script>
+<script src="/lib/messenger/build/js/messenger-theme-flat.js"></script>
+
+<!-- Archidoodles Specific -->
+<script src="/lib/app/app.js"></script>
+<script src="/lib/app/select.js"></script>
+
+
+
+<script>
+    var url = window.location.pathname;
+
+    $(document).ready(function() {
+        UniversalSelect('.customers', 'name', '/api/admin/v1/admin/admin_customers?sort=name', '', 0);
+        UniversalSelect('.status', 'status', '/api/admin/v1/admin/admin_statuses?sort=status', {{#if results.status_id}}{{{stringifyJson results.status_id}}}{{else}}{"_id": "5c3b26f81c9d440000b1f28e"}{{/if}}, 0);
+
+        UniversalSelect('.states', 'state_name', '/api/v1/geo_states?sort=state_name', {{{stringifyJson results.addresses.0.state_id}}}, 0);
+        UniversalSelect('.countries', 'country_name', '/api/v1/geo_countries?sort=country_name', {{#if results.address.0.country_id}}{{{stringifyJson results.addresses.0.country_id}}}{{else}}'5522e0594358c03829db4d59'{{/if}}, 0);
+
+        renderCustomerTable();
+
+    });
+
+
+    $('#customer-select').change(function(){
+        let _id = $('#customer-select').val();
+        var url = "/" + window.location.pathname + "?customer_id=" + _id;
+        window.location.replace(url);
+    });
+
+
+    function renderCustomerDetails (){
+        let _id = $('#customer-select');
+        //var url = "/" + window.location.pathname + "?customer_id=" + _id;
+        url += "?customer_id=" + _id;
+        window.location.replace(url);
+    }
+
+    function renderCustomerTable(){
+        $.get("/api/admin/v1/admin/admin_customers?sort=name&populate=status_id", function(data){
+            let newData = data.map((m)=>{
+               return {
+                   name : '<a href="' + url + '?customer_id=' + m._id + '">' + m.name + '</a>',
+                   status : m.status_id.status,
+               }
+            });
+
+            $('#customer-table').dataTable( {
+                "processing": true
+                , data : newData
+                , dom: 'lfBtip'
+                , "order": [[1,"asc"]]
+                , "columns": [
+                    { data: "name" },
+                    { data: "status", className: "center" },
+                ]
+                , buttons: [
+                    'excel', 'print'
+                ]
+            } );
+        })
+    }
+
+</script>
+

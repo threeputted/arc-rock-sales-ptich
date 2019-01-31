@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<!-- saved from url=(0153)/grid_basic.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>BlackLake Security</title>
+
+    <link href="/css/app/application.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <script>
+        /* yeah we need this empty stylesheet here. It's cool chrome & chromium fix
+           chrome fix https://code.google.com/p/chromium/issues/detail?id=167083
+                      https://code.google.com/p/chromium/issues/detail?id=332189
+        */
+    </script>
+</head>
+<body>
+<div class="logo">
+    <img src="/img/logo_1.png" style="height: 50px;">
+</div>
+<nav id="sidebar" class="sidebar nav-collapse collapse">
+    <ul id="side-nav" class="side-nav">
+        <li class="">
+            <a href="/app/"><i class="fa fa-home"></i> <span class="name">Dashboard</span></a>
+        </li>
+        <li class="">
+            <a href="/app/"><i class="fa fa-home"></i> <span class="name">Active Quotes</span></a>
+        </li>
+        <li class="">
+            <a href="/app/"><i class="fa fa-home"></i> <span class="name">Open Purchase Orders</span></a>
+        </li>
+        <li class="">
+            <a href="/app/"><i class="fa fa-home"></i> <span class="name">Order History</span></a>
+        </li>
+        <li class="panel ">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="/grid_basic.html#forms-collapse" aria-expanded="false"><i class="fa fa-pencil"></i> <span class="name">Sample Accordion</span></a>
+            <ul id="forms-collapse" class="panel-collapse collapse " aria-expanded="false">
+                <li class=""><a href="#">Account</a></li>
+                <li class=""><a href="#">Article</a></li>
+                <li class=""><a href="#">Elements</a></li>
+                <li class=""><a href="#">Validation</a></li>
+                <li class=""><a href="#">Wizard</a></li>
+            </ul>
+        </li>
+        <li class="visible-xs">
+            <a href="/logout"><i class="fa fa-sign-out"></i> <span class="name">Sign Out</span></a>
+        </li>
+    </ul>
+
+    <h5 class="sidebar-nav-title">Labels <a class="action-link" href="/grid_basic.html#"><i class="glyphicon glyphicon-plus"></i></a></h5>
+    <!-- some styled links in sidebar. ready to use as links to email folders, projects, groups, etc -->
+    <ul class="sidebar-labels">
+        <li>
+            <a href="#">
+                <!-- yep, .circle again -->
+                <i class="fa fa-circle text-warning"></i>
+                <span class="label-name">My Recent</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-circle text-gray"></i>
+                <span class="label-name">Starred</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-circle text-danger"></i>
+                <span class="label-name">Background</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+<div class="wrap">
+    <header class="page-header">
+        <div class="navbar">
+            <ul class="nav navbar-nav navbar-right pull-right">
+                <li class="visible-phone-landscape">
+                    <a href="/grid_basic.html#" id="search-toggle">
+                        <i class="fa fa-search"></i>
+                    </a>
+                </li>
+                <li class="hidden-sm">
+                    <a style="color: white; font-size: small;" href="#">John Best</a>
+                </li>
+                <li class="hidden-sm">
+                    <a style="color: white; font-size: small;" href="#">Settings</a>
+                </li>
+                <li class="hidden-sm">
+                    <a style="color: white; font-size: small;" href="#">Logout</a>
+                </li>
+            </ul>
+            <form id="search-form" class="navbar-form pull-right" role="search" style="height: 0px;">
+                <input type="search" class="form-control search-query" placeholder="Search...">
+            </form>
+        </div>
+    </header>
+    <div class="content container">
+        <h2 class="page-title"><span class="fw-semi-bold">Responsive</span> Grid <small>Fully responsive layout</small></h2>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <section class="widget tiny">
+                    <header>
+                        <h4>
+
+                            Col-md-8 widget
+                        </h4>
+                    </header>
+                    <div class="body">
+                        <blockquote class="blockquote-sm">
+                            Looks great with <code>.col-md-offset-2</code>
+                        </blockquote>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <section class="widget tiny">
+                <header>
+                    <h4>
+                        The same with 10
+                    </h4>
+                </header>
+                <div class="body">
+                    <blockquote class="blockquote-sm">
+                        Looks great with <code>.col-md-offset-1</code>
+                    </blockquote>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <section class="widget tiny-x2">
+                <header>
+                    <h4>
+                        Col-md-5
+                    </h4>
+                </header>
+                <div class="body">
+                </div>
+            </section>
+        </div>
+        <div class="col-md-4">
+            <section class="widget tiny">
+                <header>
+                    <h4>
+                        Col-md-4
+                    </h4>
+                </header>
+                <div class="body">
+                </div>
+            </section>
+            <section class="widget tiny">
+                <header>
+                    <h4>
+                        Col-md-4
+                    </h4>
+                </header>
+                <div class="body">
+                </div>
+            </section>
+        </div>
+        <div class="col-md-3">
+            <section class="widget tiny">
+                <header>
+                    <h4>
+                        Col-md-3
+                    </h4>
+                </header>
+                <div class="body">
+                </div>
+            </section>
+            <section class="widget tiny">
+                <header>
+                    <h4>
+                        Col-md-3
+                    </h4>
+                </header>
+                <div class="body">
+                </div>
+            </section>
+        </div>
+    </div>
+    <footer class="content-footer">
+        Light Blue 4.0 Ajax Version - Made by <a href="https://flatlogic.com/" rel="nofollow noopener noreferrer" target="_blank">Flatlogic</a>
+    </footer>
+</div>
+<div class="loader-wrap hiding hide">
+    <i class="fa fa-circle-o-notch fa-spin"></i>
+</div>
+</div>
+
+<!-- common libraries. required for every page-->
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/jquery-pjax/jquery.pjax.js"></script>
+<script src="/lib/bootstrap/bootstrap.min.js"></script>
+<script src="/lib/widgster/widgster.js"></script>
+<script src="/lib/underscore/underscore.js"></script>
+
+<!-- common application js -->
+<script src="/lib/app/app.js"></script>
+<script src="/lib/app/settings.js"></script>
+
+<!-- common templates -->
+<script type="text/template" id="settings-template">
+    <div class="setting clearfix">
+        <div>Sidebar on the</div>
+        <div id="sidebar-toggle" class="pull-left btn-group" data-toggle="buttons-radio">
+            <% onRight = sidebar == 'right'%>
+            <button type="button" data-value="left" class="btn btn-sm btn-default <%= onRight? '' : 'active' %>">Left</button>
+            <button type="button" data-value="right" class="btn btn-sm btn-default <%= onRight? 'active' : '' %>">Right</button>
+        </div>
+    </div>
+    <div class="setting clearfix">
+        <div>Sidebar</div>
+        <div id="display-sidebar-toggle" class="pull-left btn-group" data-toggle="buttons-radio">
+            <% display = displaySidebar%>
+            <button type="button" data-value="true" class="btn btn-sm btn-default <%= display? 'active' : '' %>">Show</button>
+            <button type="button" data-value="false" class="btn btn-sm btn-default <%= display? '' : 'active' %>">Hide</button>
+        </div>
+    </div>
+    <div class="setting clearfix">
+        <div>Light Version</div>
+        <div>
+            <a href="../light/index.html" class="btn btn-sm btn-default">&nbsp; Switch &nbsp;   <i class="fa fa-angle-right"></i></a>
+        </div>
+    </div>
+    <div class="setting clearfix">
+        <div>White Version</div>
+        <div>
+            <a href="../white/index.html" class="btn btn-sm btn-default">&nbsp; Switch &nbsp;   <i class="fa fa-angle-right"></i></a>
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="sidebar-settings-template">
+    <% auto = sidebarState == 'auto'%>
+    <% if (auto) {%>
+    <button type="button"
+            data-value="icons"
+            class="btn-icons btn btn-transparent btn-sm">Icons</button>
+    <button type="button"
+            data-value="auto"
+            class="btn-auto btn btn-transparent btn-sm">Auto</button>
+    <%} else {%>
+    <button type="button"
+            data-value="auto"
+            class="btn btn-transparent btn-sm">Auto</button>
+    <% } %>
+</script>
+
+<!-- page specific scripts -->
+<!-- page specific libs -->
+
+<!-- page application js -->
+
+
+</body></html>

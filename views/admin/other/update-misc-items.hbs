@@ -1,0 +1,99 @@
+<div class="" style="padding: 10px 10px 10px 10px;">
+    <h3>Update Misc Items</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <section class="widget">
+                <h4>Customer Statuses</h4>
+                <form class="form-horizontal" role="form" method="post" action="/updateCollection/admin/admin_statuses" id="admin_statuses-form">
+                    <fieldset>
+                        <div class="col-md-12">
+                            <input type="hidden" name="_csrf" value="{{_csrf}}">
+                            <input type="hidden" name="_id" value="{{results._id}}">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="project-type-select2">Existing Statuses</label>
+                                <div class="col-sm-8">
+                                    <select id="customer-status-select"
+                                            class="form-control status"
+                                            name="status">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">New Status</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="status" class="form-control status" id="status" value="{{results.status}}">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-sm-offset-2 col-sm-8">
+                                <div class="btn-toolbar">
+                                    <button type="submit" class="btn btn-primary" onclick="updateItemsVersion('#admin_statuses-form')">
+                                        {{#if results.update}}
+                                            Update Status
+                                        {{else}}
+                                            Create Status
+                                        {{/if}}
+                                    </button>
+                                    <button type="reset" class="btn btn-inverse" onClick="this.form.reset()">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+        <div class="col-md-6">
+
+        </div>
+    </div>
+</div>
+
+
+<!-- common libraries. required for every page-->
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+<script src="/lib/jquery-pjax/jquery.pjax.js"></script>
+
+<!-- select2 -->
+<script src="/lib/select2/select2.js"></script>
+
+<!-- Messenger Items -->
+<script src="/lib/messenger/build/js/messenger.js"></script>
+<script src="/lib/messenger/build/js/messenger-theme-flat.js"></script>
+
+<!-- Archidoodles Specific -->
+<script src="/lib/app/app.js"></script>
+<script src="/lib/app/select.js"></script>
+
+
+<script>
+
+    $(document).ready(function() {
+        UniversalSelect('.status', 'status', '/api/admin/v1/admin/admin_statuses?sort=status', '', 0);
+        UniversalSelect('.term', 'name', '/api/v1/customers/misc_terms?sort=name', '', 0);
+    });
+
+    function autoGrow (oField) {
+        if (oField.scrollHeight > oField.clientHeight) {
+            oField.style.height = oField.scrollHeight + "px";
+        }
+    }
+
+    function getHistoricalRecommendation(customer_id, calendar_month){
+        let url = window.location.pathname + "?customer_id=" + customer_id + "&calendar_month=" + calendar_month;
+        window.location.replace("http://stackoverflow.com");
+    }
+
+    function updateItemsVersion(form){
+        /*
+                let version = $('#version').val();
+                version = parseInt(version, 10) + 1;
+                $('#version').val(version);
+        */
+        SaveItem(form);
+    }
+
+</script>

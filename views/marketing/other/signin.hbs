@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html class="login-bg">
+<head>
+    <title>{{title}}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- bootstrap -->
+    <link href="/css/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="/css/bootstrap/bootstrap-overrides.css" type="text/css" rel="stylesheet" />
+
+    <!-- global styles -->
+    <link rel="stylesheet" type="text/css" href="/css/compiled/layout.css" />
+    <link rel="stylesheet" type="text/css" href="/css/compiled/elements.css" />
+    <link rel="stylesheet" type="text/css" href="/css/compiled/icons.css" />
+
+    <!-- libraries -->
+    <link rel="stylesheet" type="text/css" href="/css/lib/font-awesome.css" />
+
+    <!-- this page specific styles -->
+    <link rel="stylesheet" href="/css/compiled/signin.css" type="text/css" media="screen" />
+
+    <!-- open sans font -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+
+<div class="login-wrapper">
+    <a href="/">
+        <img class="logo" src="/img/gelbercorp-logo.png" alt="logo" style="max-width: 350px;"/>
+    </a>
+
+    <div class="box">
+        <form method="post" id="login-form">
+            <input type="hidden" name="_csrf" value="{{_csrf}}">
+            <div class="content-wrap">
+                <h6>Log in</h6>
+                <input class="form-control" name="email" type="text" placeholder="E-mail address" required>
+                <input class="form-control" name="password" type="password" placeholder="Your password" required>
+                <a href="/reset-password" class="forgot">Forgot password?</a>
+                <div class="remember">
+                    <input id="remember-me" type="checkbox">
+                    <label for="remember-me">Remember me</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="no-account">
+        <p>Don't have an account?</p>
+        <a href="signup">More Information</a>
+    </div>
+</div>
+
+<!-- scripts -->
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/theme.js"></script>
+
+<!-- pre load bg imgs -->
+<script type="text/javascript">
+
+
+
+
+    $(function () {
+        // bg switcher
+        var $btns = $(".bg-switch .bg");
+        $btns.click(function (e) {
+            e.preventDefault();
+            $btns.removeClass("active");
+            $(this).addClass("active");
+            var bg = $(this).data("img");
+
+            $("html").css("background-image", "url('img/bgs/" + bg + "')");
+        });
+
+    });
+
+    $('#update-password').submit(function(){
+        let password = $('#password').val();
+        if (zxcvbn(password).score < 2) {
+            //console.log("This is the password " + JSON.stringify(zxcvbn(password).score));
+            $('#password-error-message').html("Please increase the strength of your password");
+            //return false;
+        } else {
+            return true;
+        }
+    })
+
+
+</script>
+</body>
+</html>
